@@ -1,0 +1,88 @@
+<form class="word-bank-form">
+    <mat-form-field class="word-bank-full-width">
+      <mat-label>Character Bank</mat-label>
+      <input  type="text" 
+              oninput="this.value = this.value.toLowerCase()" 
+              STYLE="text-transform:lowercase"  
+              matInput [formControl]="wordbankFormControl" 
+              [errorStateMatcher]="matcher"
+              placeholder="Ex. abcde">
+      <!--<mat-hint>Errors appear instantly!</mat-hint> !-->
+      <mat-error *ngIf="wordbankFormControl.hasError('wordbank') && !wordbankFormControl.hasError('required')">
+        Please enter a valid character bank
+      </mat-error>
+      <mat-error *ngIf="wordbankFormControl.hasError('required')">
+        Word bank is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+</form>  
+
+<form class="word-length-form">
+  <mat-form-field class="word-length-full-width">
+    <mat-label>Word length</mat-label>
+    <input  type="number" 
+            matInput [formControl]="wordlengthFormControl"
+            [errorStateMatcher]="matcher"
+            placeholder="Ex. 3">
+    <!--<mat-hint>Errors appear instantly!</mat-hint> !-->
+    <mat-error *ngIf="wordlengthFormControl.hasError('wordlength') && !wordlengthFormControl.hasError('required')">
+      Please enter a valid word length 
+    </mat-error>
+    <mat-error *ngIf="wordlengthFormControl.hasError('required')">
+      Word length is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+</form>  
+
+<form class="word-reg-form">
+  <mat-form-field class="word-reg-full-width">
+    <mat-label>Regular expression (optional)</mat-label>
+    <input  type="string" 
+            oninput="this.value = this.value.toLowerCase()"
+            STYLE="text-transform:lowercase"
+            matInput [formControl]="wordregFormControl"
+            [errorStateMatcher]="matcher"
+            placeholder="Ex. ..t..">
+    <!--<mat-hint>Errors appear instantly!</mat-hint> !-->
+    <mat-error *ngIf="wordregFormControl.hasError('wordreg') && !wordregFormControl.hasError('required')">
+      Please enter a valid regular expression
+    </mat-error>
+<!--   
+    <mat-error *ngIf="wordregFormControl.hasError('required')">
+      Word length is <strong>required</strong>
+    </mat-error>
+-->
+  </mat-form-field>
+</form>  
+
+<form class="submit-button-form">
+  <button mat-raised-button  (click)="onSubmit()" [disabled]="!wordbankFormControl.valid || !wordlengthFormControl.valid" >Solve!</button>
+</form>
+<mat-grid-list cols="3"rowHeight="1:1"> 
+  <mat-grid-tile 
+  *ngFor="let word of wordRes" >
+    {{word}}
+  </mat-grid-tile>
+</mat-grid-list>
+
+<!--ANGULAR STYLE LIST 
+<mat-list class="list">
+  <mat-list-item *ngFor="let word of wordRes">
+    <span style="font-size:30px">
+      {{word}}
+    </span>
+  </mat-list-item>
+</mat-list>
+-->
+<!-- <form class="submit-button-form">
+  <li *ngFor="let word of wordRes" >
+    {{word}}
+  </li>
+</form> -->
+<!-- <p>Enter your wordbank</p>
+<input [(ngModel)]="wordBank" type="text" minlength="5" maxlength="8" required>
+<p>Enter the length of your word</p>
+<input [(ngModel)]="wordLen" type="number" max="8" min="3" required>
+<p>Enter a regular expression (optional)</p>
+<input [(ngModel)]="wordReg" type="text" minlength="5" maxlength="8"> 
+<button (click)="onSubmit()">Solve!</button> -->

@@ -1,0 +1,61 @@
+*{
+    margin: auto;
+    font-size: 30px;
+}
+
+h3 {
+  font-size: 30px;
+}
+.word-bank-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .word-bank-full-width {
+    width: 100%;
+  }
+
+  .word-length-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .word-length-full-width {
+    width: 100%;
+  }
+
+  .word-reg-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .word-reg-full-width {
+    width: 100%;
+  }
+
+  .submit-button-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+
+  .result-form{
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+
+  .list{
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+
+  .mat-grid-list{
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
